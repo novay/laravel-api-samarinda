@@ -74,7 +74,7 @@ Sementara to the point begini dulu ya.
 ```php
 # DEVELOPER RESMI
 
-// Untuk menampilkan seluruh data penduduk di Kota Samarinda. Note: 15 Penududuk per Page
+// Untuk menampilkan seluruh data penduduk di Kota Samarinda. Note: 15 Penduduk per Page
 return ApiSamarinda::penduduk();
 // Untuk menampilkan data Penduduk berdasarkan NIK (Khusus KTP Samarinda)
 return ApiSamarinda::pendudukByNik(6403050611910002);
