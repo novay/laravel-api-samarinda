@@ -34,7 +34,7 @@ Untuk menjawab seluruh kebutuhan para developer lokal akan data, Pemerintah Kota
     composer require novay/laravel-api-samarinda
 ```
 
-* SELESAI. Package ini menggunakan fitur `auto discovery`.
+* Package ini menggunakan fitur `auto discovery`.
 
 ##### Laravel 5.4 Ke Bawah (Optional untuk Laravel 5.5)
 2. Tambahkan baris berikut pada file `config/app.php` pada masing-masing lokasi `providers` dan `aliases`:
@@ -59,7 +59,7 @@ php artisan vendor:publish --provider="Novay\ApiSamarinda\ApiSamarindaServicePro
 4. Tambahkan beberapa settingan berikut kedalam file `.env` Anda:
 
 ```
-# These Samarinda API Settings, SMR_TOKEN are required.
+# Samarinda API Settings, SMR_TOKEN are required.
 SMR_API='http://api.samarindakota.go.id/api'
 SMR_API_VERSION='v1'
 SMR_TOKEN='API_KEY_ANDA'
