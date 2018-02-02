@@ -24,16 +24,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Novay\\ApiSamarida\\": "src/"
+            "Novay\\ApiSamarinda\\": "src/"
         }
     },
    "extra": {
        "laravel": {
            "providers": [
-               "Novay\\ApiSamarida\\ApiSamarindaServiceProvider"
+               "Novay\\ApiSamarinda\\ApiSamarindaServiceProvider"
            ],
            "aliases": {
-               "ApiSamarida" : "Novay\\ApiSamarida\\Facade"
+               "ApiSamarinda" : "Novay\\ApiSamarinda\\Facade"
            }
        }
    }
