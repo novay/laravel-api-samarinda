@@ -91,7 +91,7 @@ return ApiSamarinda::provinsi();
 return ApiSamarinda::provinsi(15);
 // Menampilkan data provinsi berdasarkan ID (List ID Provinsi segera dibuatkan halaman khusus)
 return ApiSamarinda::provinsiById($id_provinsi);
-// Melakukan pencarian provinsi berdasarkan kata kunci, dalam hal ini nama
+// Melakukan pencarian provinsi berdasarkan kata kunci, dalam hal ini adalah "nama"
 return ApiSamarinda::provinsiByNama('kalimantan timur');
 
 // Penjelasan sama dengan provinsi
@@ -99,7 +99,7 @@ return ApiSamarinda::kota();
 return ApiSamarinda::kota(15);
 return ApiSamarinda::kotaById(1103);
 return ApiSamarinda::kotaByNama('samarinda');
-// Menampilkan seluruh Kota yang ada di Provinsi sesuai dengan ID Provinsi yang dimasukkan
+// Menampilkan seluruh Kota yang ada di Provinsi sesuai dengan ID Provinsi yang ditentukan
 return ApiSamarinda::kotaByIdProvinsi(64);
 
 // Penjelasan sama dengan Provinsi dan Kota
@@ -119,7 +119,7 @@ return ApiSamarinda::kelurahanByIdKecamatan(6405060);
 // Menampilkan seluruh data sekolah yang ada di Kota Samarinda (Data diambil langsung dari Dapodik)
 return ApiSamarinda::sekolah();
 
-// Berhubung nama kecamatan dan kelurahan ditampilkan dalam bentuk Kodefikasi, 
+// Berhubung nama kecamatan dan kelurahan ditampilkan dalam bentuk Kode, 
 // gunakan parameter berikut untuk menampilkan kecamatan dan kelurahan dalam bentuk nama.
 // 1. 'kecamatan' untuk menampilkan nama kecamatannya 
 // 2. 'kelurahan' untuk menampilkan nama kelurahannya
@@ -149,7 +149,9 @@ return ApiSamarinda::sekolahByKecamatan(6472022);
 ```
 
 ### Credit
-* Pemerintah [Kota Samarinda](https://samarindakota.go.id).
+* [Pemerintah Kota Samarinda](https://samarindakota.go.id).
+* [Dinas Komunikasi dan Informatika Kota Samarinda](https://diskominfo.samarindakota.go.id).
+* Bidang E-Government dan Aplikasi (Bidang 4)
 
 ## License
 API (Application Programming Interface) Samarinda is licensed under the MIT license for both personal and commercial products. Enjoy!
