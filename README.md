@@ -146,6 +146,20 @@ return ApiSamarinda::sekolahByKelurahan(6472030002);
 // Silahkan gunakan ID Kecamatan yang diinginkan
 return ApiSamarinda::sekolahByKecamatan(6472022);
 
+
+
+// Contoh untuk melakukan Looping pada data yang telah ditarik
+
+// 1. Pilih salah satu function diatas
+$data = ApiSamarinda::provinsi();
+// 2. Karena hasil tangkapan berupa JSON convert dulu menjadi array
+$json = (array)$data->original;
+// 3. Lakukan perulangan dengan memanggil pada 'data'
+foreach($json['data'] as $temp) {
+	// 4. Panggil 'name' dengan memanfaatkan pemanggilan 'array'
+	return $temp['name'];
+}
+
 ```
 
 ### Credit
