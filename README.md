@@ -41,11 +41,11 @@ Untuk menjawab seluruh kebutuhan para developer lokal akan data, Pemerintah Kota
 
 ```php
 'providers' => [
-    'Novay\ApiSamarinda\ApiSamarindaServiceProvider::class', 
+    Novay\ApiSamarinda\ApiSamarindaServiceProvider::class, 
 ];
 
 'aliases' => [
-    'ApiSamarinda' => 'Novay\ApiSamarinda\Facade::class'
+    'ApiSamarinda' => Novay\ApiSamarinda\Facade::class, 
 ];
 ```
 
@@ -73,50 +73,75 @@ Sementara to the point begini dulu ya.
 
 ```php
 # DEVELOPER RESMI
+
+// Untuk menampilkan seluruh data penduduk di Kota Samarinda. Note: 15 Penududuk per Page
 return ApiSamarinda::penduduk();
+// Untuk menampilkan data Penduduk berdasarkan NIK (Khusus KTP Samarinda)
 return ApiSamarinda::pendudukByNik(6403050611910002);
 
 # DEVELOPER
-return ApiSamarinda::url('GET', 'http://api.samarindakota.go.id/api/v1/sekolah?with=both&jenjang=smk');
+// Untuk melakukan pemanggilan menggunakan URL lengkap
+return ApiSamarinda::url('GET', 'http://api.samarindakota.go.id/api/v1/sekolah?with=both&jenjang=smk', true);
 
+// Menampilkan seluruh data provinsi di Indonesia
 return ApiSamarinda::provinsi();
-return ApiSamarinda::provinsi($paginate = 15);
+// Menampilkan data provinsi per paginasi (Tentukan sendiri berapa yang mau ditampilkan per Halaman)
+return ApiSamarinda::provinsi(15);
+// Menampilkan data provinsi berdasarkan ID (List ID Provinsi segera dibuatkan halaman khusus)
 return ApiSamarinda::provinsiById($id_provinsi);
+// Melakukan pencarian provinsi berdasarkan kata kunci, dalam hal ini nama
 return ApiSamarinda::provinsiByNama('kalimantan timur');
 
+// Penjelasan sama dengan provinsi
 return ApiSamarinda::kota();
-return ApiSamarinda::kota($paginate = 15);
+return ApiSamarinda::kota(15);
 return ApiSamarinda::kotaById(1103);
 return ApiSamarinda::kotaByNama('samarinda');
+// Menampilkan seluruh Kota yang ada di Provinsi sesuai dengan ID Provinsi yang dimasukkan
 return ApiSamarinda::kotaByIdProvinsi(64);
 
+// Penjelasan sama dengan Provinsi dan Kota
 return ApiSamarinda::kecamatan();
-return ApiSamarinda::kecamatan($paginate = 15);
+return ApiSamarinda::kecamatan(15);
 return ApiSamarinda::kecamatanById(1101030);
 return ApiSamarinda::kecamatanByNama('redeb');
 return ApiSamarinda::kecamatanByIdKota(6472);
 
+// Penjelasan sama dengan Provinsi, Kota dan Kecamatan
 return ApiSamarinda::kelurahan();
-return ApiSamarinda::kelurahan($paginate = 15);
+return ApiSamarinda::kelurahan(15);
 return ApiSamarinda::kelurahanById(1101010007);
 return ApiSamarinda::kelurahanByNama('redeb');
 return ApiSamarinda::kelurahanByIdKecamatan(6405060);
 
+// Menampilkan seluruh data sekolah yang ada di Kota Samarinda (Data diambil langsung dari Dapodik)
 return ApiSamarinda::sekolah();
+
+// Berhubung nama kecamatan dan kelurahan ditampilkan dalam bentuk Kodefikasi, 
+// gunakan parameter berikut untuk menampilkan kecamatan dan kelurahan dalam bentuk nama.
+// 1. 'kecamatan' untuk menampilkan nama kecamatannya 
+// 2. 'kelurahan' untuk menampilkan nama kelurahannya
+// 3. 'both' untuk menampilkan keduanya
 return ApiSamarinda::sekolah('kecamatan');
 return ApiSamarinda::sekolah('kelurahan');
 return ApiSamarinda::sekolah('both');
 
+// Menampilkan seluruh data sekolah di Kota Samarinda berdasarkan jenjang pendidikannya
 return ApiSamarinda::sekolahByJenjang('sd');
 return ApiSamarinda::sekolahByJenjang('smp');
 return ApiSamarinda::sekolahByJenjang('sma');
 return ApiSamarinda::sekolahByJenjang('smk');
 
+// Menampilkan seluruh data sekolah di Kota Samarinda berdasarkan status sekolah
 return ApiSamarinda::sekolahByStatus('swasta');
 return ApiSamarinda::sekolahByStatus('negeri');
 
+// Menampilkan seluruh data sekolah di Kota Samarinda yang berlokasi di Kelurahan tertentu 
+// Silahkan gunakan ID Kelurahan yang diinginkan
 return ApiSamarinda::sekolahByKelurahan(6472030002);
 
+// Menampilkan seluruh data sekolah di Kota Samarinda yang berlokasi di Kecamatan tertentu
+// Silahkan gunakan ID Kecamatan yang diinginkan
 return ApiSamarinda::sekolahByKecamatan(6472022);
 
 ```
