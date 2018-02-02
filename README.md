@@ -79,7 +79,9 @@ return ApiSamarinda::penduduk();
 // Untuk menampilkan data Penduduk berdasarkan NIK (Khusus KTP Samarinda)
 return ApiSamarinda::pendudukByNik(6403050611910002);
 
-# DEVELOPER
+
+# DEVELOPER BIASA
+
 // Untuk melakukan pemanggilan menggunakan URL lengkap
 return ApiSamarinda::url('GET', 'http://api.samarindakota.go.id/api/v1/sekolah?with=both&jenjang=smk', true);
 
