@@ -148,17 +148,19 @@ return ApiSamarinda::sekolahByKecamatan(6472022);
 
 
 
-// Contoh untuk melakukan Looping pada data yang telah ditarik
+// Contoh untuk melakukan Looping pada data yang ditarik menggunakan salah satu function diatas
 
-// 1. Pilih salah satu function diatas
+// Untuk yang sifatnya List atau Array gunakan ini:
 $data = ApiSamarinda::provinsi();
-// 2. Karena hasil tangkapan berupa JSON convert dulu menjadi array
-$json = (array)$data->original;
-// 3. Lakukan perulangan dengan memanggil pada 'data'
-foreach($json['data'] as $temp) {
-	// 4. Panggil 'name' dengan memanfaatkan pemanggilan 'array'
+$array = (array)$data->original;
+foreach($array['data'] as $temp) {
 	return $temp['name'];
 }
+
+// Untuk yang sifatnya Individual atau Object gunakan ini:
+$data = ApiSamarinda::provinsiById(64);
+$array = (array)$data->original;
+return $array['data']['name'];
 
 ```
 
