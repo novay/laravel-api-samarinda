@@ -50,7 +50,13 @@ Untuk menjawab seluruh kebutuhan para developer lokal akan data, Pemerintah Kota
 ```
 
 ##### Konfigurasi
-3. Tambahkan beberapa settingan berikut kedalam file `.env` Anda:
+3. Jalankan perintah berikut:
+
+```
+php artisan vendor:publish --provider="Novay\ApiSamarinda\ApiSamarindaServiceProvider"
+```
+
+4. Tambahkan beberapa settingan berikut kedalam file `.env` Anda:
 
 ```
 # These Samarinda API Settings, SMR_TOKEN are required.
@@ -59,7 +65,7 @@ SMR_API_VERSION='v1'
 SMR_TOKEN='API_KEY_ANDA'
 ```
 
-4. Buat akun dan dapatkan `TOKEN` Anda di [http://api.samarindakota.go.id](http://api.samarindakota.go.id). 
+5. Buat akun dan dapatkan `TOKEN` Anda di [http://api.samarindakota.go.id](http://api.samarindakota.go.id). 
 
 ### Panduan Penggunaan
 
