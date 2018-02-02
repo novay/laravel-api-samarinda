@@ -41,11 +41,11 @@ Untuk menjawab seluruh kebutuhan para developer lokal akan data, Pemerintah Kota
 
 ```php
 'providers' => [
-    'Novay\ApiSamarinda\ApiSamarindaServiceProvider::class', 
+    Novay\ApiSamarinda\ApiSamarindaServiceProvider::class, 
 ];
 
 'aliases' => [
-    'ApiSamarinda' => 'Novay\ApiSamarinda\Facade::class'
+    'ApiSamarinda' => Novay\ApiSamarinda\Facade::class, 
 ];
 ```
 
