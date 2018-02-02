@@ -1,4 +1,4 @@
-# LARAVEL SAMARINDA API (Application Programming Inteface)
+# Laravel Samarinda API (Application Programming Inteface)
 
 [![Total Downloads](https://poser.pugx.org/novay/laravel-api-samarinda/d/total.svg)](https://packagist.org/packages/novay/laravel-api-samarinda)
 [![Build Status](https://travis-ci.org/novay/laravel-api-samarinda.svg?branch=master)](http://travis-ci.org/novay/laravel-api-samarinda)
@@ -34,84 +34,90 @@ Untuk menjawab seluruh kebutuhan para developer lokal akan data, Pemerintah Kota
     composer require novay/laravel-api-samarinda
 ```
 
-* SELESAI. Package ini menggunakan fitur 'auto discovery'.
+* SELESAI. Package ini menggunakan fitur `auto discovery`.
 
-##### Laravel 5.4 Ke Bawah
+##### Laravel 5.4 Ke Bawah (Optional untuk Laravel 5.5)
 2. Tambahkan baris berikut pada file `config/app.php` pada masing-masing lokasi `providers` dan `aliases`:
 
 ```php
-    'providers' => [
-        'Novay\ApiSamarinda\ApiSamarindaServiceProvider::class', 
-    ];
+'providers' => [
+    'Novay\ApiSamarinda\ApiSamarindaServiceProvider::class', 
+];
 
-    'aliases' => [
-        'ApiSamarinda' => 'Novay\ApiSamarinda\Facade::class'
-    ];
+'aliases' => [
+    'ApiSamarinda' => 'Novay\ApiSamarinda\Facade::class'
+];
 ```
 
 ##### Konfigurasi
-3. Tambahkan beberapa settingan berikut kedalam file `.env` Anda:
+3. Jalankan perintah berikut:
 
 ```
-    # These Samarinda API Settings, SMR_TOKEN are required.
-	SMR_API='http://api.samarindakota.go.id/api'
-	SMR_API_VERSION='v1'
-	SMR_TOKEN='API_KEY_ANDA'
+php artisan vendor:publish --provider="Novay\ApiSamarinda\ApiSamarindaServiceProvider"
 ```
 
-4. Buat akun dan dapatkan `TOKEN` Anda di [http://api.samarindakota.go.id](http://api.samarindakota.go.id). 
+4. Tambahkan beberapa settingan berikut kedalam file `.env` Anda:
+
+```
+# These Samarinda API Settings, SMR_TOKEN are required.
+SMR_API='http://api.samarindakota.go.id/api'
+SMR_API_VERSION='v1'
+SMR_TOKEN='API_KEY_ANDA'
+```
+
+5. Buat akun dan dapatkan `TOKEN` Anda di [http://api.samarindakota.go.id](http://api.samarindakota.go.id). 
 
 ### Panduan Penggunaan
 
 Sementara to the point begini dulu ya.
 
 ```php
-    # DEVELOPER RESMI
-	return ApiSamarinda::penduduk();
-	return ApiSamarinda::pendudukByNik(6403050611910002);
+# DEVELOPER RESMI
+return ApiSamarinda::penduduk();
+return ApiSamarinda::pendudukByNik(6403050611910002);
 
-	# DEVELOPER
-	return ApiSamarinda::url('GET', 'http://api.samarindakota.go.id/api/v1/sekolah?with=both&jenjang=smk');
+# DEVELOPER
+return ApiSamarinda::url('GET', 'http://api.samarindakota.go.id/api/v1/sekolah?with=both&jenjang=smk');
 
-	return ApiSamarinda::provinsi();
-	return ApiSamarinda::provinsi($paginate = 15);
-	return ApiSamarinda::provinsiById($id_provinsi);
-	return ApiSamarinda::provinsiByNama('kalimantan timur');
+return ApiSamarinda::provinsi();
+return ApiSamarinda::provinsi($paginate = 15);
+return ApiSamarinda::provinsiById($id_provinsi);
+return ApiSamarinda::provinsiByNama('kalimantan timur');
 
-	return ApiSamarinda::kota();
-	return ApiSamarinda::kota($paginate = 15);
-	return ApiSamarinda::kotaById(1103);
-	return ApiSamarinda::kotaByNama('samarinda');
-	return ApiSamarinda::kotaByIdProvinsi(64);
-	
-	return ApiSamarinda::kecamatan();
-	return ApiSamarinda::kecamatan($paginate = 15);
-	return ApiSamarinda::kecamatanById(1101030);
-	return ApiSamarinda::kecamatanByNama('redeb');
-	return ApiSamarinda::kecamatanByIdKota(6472);
-	
-	return ApiSamarinda::kelurahan();
-	return ApiSamarinda::kelurahan($paginate = 15);
-	return ApiSamarinda::kelurahanById(1101010007);
-	return ApiSamarinda::kelurahanByNama('redeb');
-	return ApiSamarinda::kelurahanByIdKecamatan(6405060);
-	
-	return ApiSamarinda::sekolah();
-	return ApiSamarinda::sekolah('kecamatan');
-	return ApiSamarinda::sekolah('kelurahan');
-	return ApiSamarinda::sekolah('both');
-	
-	return ApiSamarinda::sekolahByJenjang('sd');
-	return ApiSamarinda::sekolahByJenjang('smp');
-	return ApiSamarinda::sekolahByJenjang('sma');
-	return ApiSamarinda::sekolahByJenjang('smk');
-	
-	return ApiSamarinda::sekolahByStatus('swasta');
-	return ApiSamarinda::sekolahByStatus('negeri');
-	
-	return ApiSamarinda::sekolahByKelurahan(6472030002);
-	
-	return ApiSamarinda::sekolahByKecamatan(6472022);
+return ApiSamarinda::kota();
+return ApiSamarinda::kota($paginate = 15);
+return ApiSamarinda::kotaById(1103);
+return ApiSamarinda::kotaByNama('samarinda');
+return ApiSamarinda::kotaByIdProvinsi(64);
+
+return ApiSamarinda::kecamatan();
+return ApiSamarinda::kecamatan($paginate = 15);
+return ApiSamarinda::kecamatanById(1101030);
+return ApiSamarinda::kecamatanByNama('redeb');
+return ApiSamarinda::kecamatanByIdKota(6472);
+
+return ApiSamarinda::kelurahan();
+return ApiSamarinda::kelurahan($paginate = 15);
+return ApiSamarinda::kelurahanById(1101010007);
+return ApiSamarinda::kelurahanByNama('redeb');
+return ApiSamarinda::kelurahanByIdKecamatan(6405060);
+
+return ApiSamarinda::sekolah();
+return ApiSamarinda::sekolah('kecamatan');
+return ApiSamarinda::sekolah('kelurahan');
+return ApiSamarinda::sekolah('both');
+
+return ApiSamarinda::sekolahByJenjang('sd');
+return ApiSamarinda::sekolahByJenjang('smp');
+return ApiSamarinda::sekolahByJenjang('sma');
+return ApiSamarinda::sekolahByJenjang('smk');
+
+return ApiSamarinda::sekolahByStatus('swasta');
+return ApiSamarinda::sekolahByStatus('negeri');
+
+return ApiSamarinda::sekolahByKelurahan(6472030002);
+
+return ApiSamarinda::sekolahByKecamatan(6472022);
 
 ```
 
