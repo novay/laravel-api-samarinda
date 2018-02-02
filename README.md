@@ -148,19 +148,21 @@ return ApiSamarinda::sekolahByKecamatan(6472022);
 
 
 
-// Contoh untuk melakukan Looping pada data yang ditarik menggunakan salah satu function diatas
+// Contoh implementasi pada data yang ditarik menggunakan salah satu function diatas
 
 // Untuk yang sifatnya List atau Array gunakan ini:
 $data = ApiSamarinda::provinsi();
 $array = (array)$data->original;
 foreach($array['data'] as $temp) {
 	return $temp['name'];
+	// Output: Aceh
 }
 
 // Untuk yang sifatnya Individual atau Object gunakan ini:
 $data = ApiSamarinda::provinsiById(64);
 $array = (array)$data->original;
 return $array['data']['name'];
+// Output: Kalimantan Timur
 
 ```
 
