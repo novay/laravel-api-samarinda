@@ -1,0 +1,40 @@
+{
+    "name": "novay/laravel-api-samarinda",
+    "description": "Package Laravel untuk memudahkan developer lokal dalam pemanfaatan API yang disediakan oleh Pemerintah Kota Samarinda.",
+    "keywords": [
+      "laravel", 
+      "samarinda", 
+      "developer", 
+      "api", 
+      "lokal", 
+      "programmer",
+      "application", 
+      "programming", 
+      "interface"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Noviyanto Rahmadi",
+            "email": "novay@enterwind.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~5.3|~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Novay\\ApiSamarida\\": "src/"
+        }
+    },
+   "extra": {
+       "laravel": {
+           "providers": [
+               "Novay\\ApiSamarida\\ApiSamarindaServiceProvider"
+           ],
+           "aliases": {
+               "ApiSamarida" : "Novay\\ApiSamarida\\Facade"
+           }
+       }
+   }
+}
