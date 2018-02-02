@@ -13,20 +13,25 @@ class Enterwind
 
     public function httpClient($method, $url, $custom = false)
     {
-        if($custom == true) {
-            $url = config('api-samarinda.api_url') . '/' . config('api-samarinda.api_version');
-        } else {
-            $url = $url;
-        }
-
         $client = new HttpClient;
-        $res = $client->request($method, $url, [
-            'headers' => [
-                'Authorization' => 'Bearer ' . config('api-samarinda.token'),
-                'Content-Type'  => 'application/json',
-                'Accept' => 'application/json'
-            ]
-        ]);
+        if($custom == false) {
+            $namespace = config('api-samarinda.api_url') . '/' . config('api-samarinda.api_version') . $url;
+            $res = $client->request($method, $namespace, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . config('api-samarinda.token'),
+                    'Content-Type'  => 'application/json',
+                    'Accept' => 'application/json'
+                ]
+            ]);
+        } else {
+            $res = $client->request($method, $url, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . config('api-samarinda.token'),
+                    'Content-Type'  => 'application/json',
+                    'Accept' => 'application/json'
+                ]
+            ]);
+        }
 
         $res->getHeader('content-type');
 
