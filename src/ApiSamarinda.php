@@ -11,10 +11,11 @@ class ApiSamarinda extends Enterwind
      *
      * @param String    $method  | POST, GET
      * @param String    $url     | API Endpoint
+     * @param Boolean   $custom  | Custom URL without API Config
      */
-    public function url($method, $url)
+    public function url($method, $url, $custom = true)
     {
-        return $this->httpClient($method, $url, true);
+        return $this->httpClient($method, $url, $custom);
     }
 
     /**
