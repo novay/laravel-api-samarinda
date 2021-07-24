@@ -19,9 +19,6 @@
             "email": "novay@enterwind.com"
         }
     ],
-    "require": {
-        "guzzlehttp/guzzle": "~5.3|~6.0"
-    },
     "autoload": {
         "psr-4": {
             "Novay\\ApiSamarinda\\": "src/"
